@@ -6,19 +6,19 @@ import (
 )
 
 type Object struct {
-	gorm.Model
-	Key       string // 对象唯一key
-	MD5       string // 对象md5
-	Type      string // 存储类型: Normal, Multipart
-	Path      string // 存储路径
-	Size      int    // 当前存储大小
-	TotalSize int    // 总文件大小
-	VersionID uint   // 对象版本号
+	gorm.Model `gorm:"gorm_._model"`
+	Key        string `gorm:"key; not null; unique"` // 对象唯一key
+	MD5        string `gorm:"md_5; not null"`        // 对象md5
+	Type       string `gorm:"type; not null"`        // 存储类型: Normal, Multipart
+	Path       string `gorm:"path"`                  // 存储路径
+	Size       int    `gorm:"size"`                  // 当前存储大小
+	TotalSize  int    `gorm:"total_size"`            // 总文件大小
+	VersionID  uint   `gorm:"version_id"`            // 对象版本号
 }
 
 func (o *Object) IsExistByKey(key string) bool {
 	var cnt int64
-	pg.Client.Where("key = ?", key).Count(&cnt)
+	pg.Client.Model(o).Where("key = ?", key).Count(&cnt)
 	if cnt > 0 {
 		return true
 	}
@@ -26,7 +26,7 @@ func (o *Object) IsExistByKey(key string) bool {
 }
 
 func (o *Object) GetObjectByKey(key string) error {
-	panic("not impl")
+	return pg.Client.Where("key = ?", key).First(o).Error
 }
 
 func (o *Object) Create() error {

@@ -1,10 +1,11 @@
 package controller
 
 import (
+	"bytes"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"github.com/sirupsen/logrus"
-	response "oss/pkg/reponse"
+	"oss/pkg/response"
 	"oss/pkg/storage"
 	"oss/svc/model"
 	"strconv"
@@ -29,24 +30,21 @@ func PutObject(c *fiber.Ctx) error {
 	}
 
 	// 获取object md5
-	md5 := c.FormValue("md5", "nil")
+	md5 := c.Get("OSS-MD5", "nil")
 	if md5 == "nil" {
 		return response.Resp400(c, nil, "md5 form not found")
 	}
 	object.MD5 = md5
 
 	// 获取key
-	key := c.FormValue("key", "")
+	key := c.Get("OSS-Key", "")
 	if key == "" {
 		return response.Resp400(c, nil, "key form not is nil")
 	}
 	object.Key = key
 
-	// 获取object
-	fh, err := c.FormFile("object")
-	if err != nil {
-		return response.Resp400(c, nil, "failed to translate object")
-	}
+	// 获取object data
+	data := c.Body()
 
 	// 获取 object record
 	if object.IsExistByKey(key) {
@@ -62,25 +60,25 @@ func PutObject(c *fiber.Ctx) error {
 		}
 	}
 	logrus.Info(cr, object)
+
 	// 校验Content-Range是否正确
 	if cr.start < object.Size || cr.end > object.TotalSize || cr.total > object.TotalSize {
 		return response.Resp400(c, nil, fmt.Sprintf("Content-Range range is incorrect"))
 	}
 
-	f, err := fh.Open()
-	if err != nil {
-		return response.Resp500(c, nil, "open file failed")
-	}
-	defer f.Close()
+	f := bytes.NewReader(data)
+	object.Size += f.Len()
 
 	if err = storage.Client.SaveChunk(key, 0, f, int64(object.Size)); err != nil {
 		return response.Resp500(c, nil, fmt.Sprintf("failed save chunk, err: %v", err))
 	}
-	object.Size += int(fh.Size)
 
-	if err = storage.Client.MergeChunk(key, 1, int(object.Size)); err != nil {
-		return response.Resp500(c, nil, fmt.Sprintf("merge chunk failed, err: %v", err))
+	if cr.end == cr.total {
+		if err = storage.Client.MergeChunk(key, 1, object.TotalSize); err != nil {
+			return response.Resp500(c, nil, fmt.Sprintf("merge chunk failed, err: %v", err))
+		}
 	}
+
 	if err = object.Update(); err != nil {
 		return response.Resp500(c, nil, fmt.Sprintf("save object record failed, err: %v", err))
 	}
