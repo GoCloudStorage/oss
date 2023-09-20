@@ -86,6 +86,9 @@ func isExist(filePath string) bool {
 	return false
 }
 
-func removeDir(dirPath string) {
-	_ = os.RemoveAll(dirPath)
+func removeDir(dirPath string) error {
+	if !isExist(dirPath) {
+		return fmt.Errorf("%v not exist", dirPath)
+	}
+	return os.RemoveAll(dirPath)
 }

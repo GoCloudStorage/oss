@@ -37,7 +37,9 @@ func (c *chunkStorage) MergeChunk(key string, totalSize int) (filePath string, e
 	dirs, err := os.ReadDir(fileDir)
 
 	if err != nil {
-		removeDir(fileDir)
+		if err2 := removeDir(fileDir); err2 != nil {
+			return "", fmt.Errorf("%v, %v", err, err2)
+		}
 		return "", fmt.Errorf("failed to read dir [%s], err: %v", fileDir, err)
 	}
 
@@ -57,7 +59,9 @@ func (c *chunkStorage) MergeChunk(key string, totalSize int) (filePath string, e
 	}
 
 	if totalSize != 0 {
-		removeDir(fileDir)
+		if err2 := removeDir(fileDir); err2 != nil {
+			return "", fmt.Errorf("%v, %v", err, err2)
+		}
 		return "", fmt.Errorf("merge chunk not complete, %d", totalSize)
 	}
 
@@ -66,10 +70,17 @@ func (c *chunkStorage) MergeChunk(key string, totalSize int) (filePath string, e
 		if part.Name() != "data" {
 			filePath := path.Join(fileDir, part.Name())
 			if err := os.Remove(filePath); err != nil {
-				removeDir(fileDir)
+				if err2 := removeDir(fileDir); err2 != nil {
+					return "", fmt.Errorf("%v, %v", err, err2)
+				}
 				return "", fmt.Errorf("failed to remove [%d] chunk file, err: %v", i, err)
 			}
 		}
 	}
 	return finalFilePath, nil
+}
+
+func (c *chunkStorage) Remove(key string) error {
+	fileDir := path.Join(c.root, key)
+	return removeDir(fileDir)
 }

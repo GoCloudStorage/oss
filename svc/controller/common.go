@@ -56,13 +56,13 @@ func parasUploadHeader(c *fiber.Ctx) (*uploadReq, error) {
 		return nil, err
 	}
 	// 获取chunk number
-	cn := c.Get("OSS-CHUNK-NUMBER", "")
+	cn := c.Get("OSS-Chunk-Number", "")
 	if cn == "" {
-		return nil, errors.New("OSS-CHUNK-NUMBER not is nil")
+		return nil, errors.New("OSS-Chunk-Number not is nil")
 	}
 	chunkNumber, err := strconv.Atoi(cn)
 	if err != nil {
-		return nil, fmt.Errorf("OSS-CHUNK-NUMBER convert int fail, err: %v", err)
+		return nil, fmt.Errorf("OSS-Chunk-Number convert int fail, err: %v", err)
 	}
 	req.ChunkNumber = chunkNumber
 	return req, nil
@@ -80,13 +80,13 @@ func parasUploadCommonHeader(c *fiber.Ctx) (*uploadReq, error) {
 	}
 
 	// 获取object total Size
-	ocl := c.Get("OSS-CONTENT-LENGTH", "")
+	ocl := c.Get("OSS-Content-Length", "")
 	if ocl == "" {
-		return nil, errors.New("OSS-CONTENT-LENGTH not is nil")
+		return nil, errors.New("OSS-Content-Length not is nil")
 	}
 	total, err := strconv.Atoi(ocl)
 	if err != nil {
-		return nil, fmt.Errorf("convert OSS-CONTENT-LENGTH fail, err: %v", err)
+		return nil, fmt.Errorf("convert OSS-Content-Length fail, err: %v", err)
 	}
 
 	// 获取object md5

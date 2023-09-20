@@ -37,3 +37,7 @@ func (o *Object) Create() error {
 func (o *Object) Update() error {
 	return pg.Client.Updates(o).Error
 }
+
+func (o *Object) DeleteByKey(key string) error {
+	return pg.Client.Where("key = ?", key).Delete(o).Error
+}
