@@ -13,6 +13,7 @@ type Object struct {
 	Path       string `gorm:"path"`                  // 存储路径
 	Size       int    `gorm:"size"`                  // 当前存储大小
 	TotalSize  int    `gorm:"total_size"`            // 总文件大小
+	IsComplete bool   `gorm:"is_complete"`           // 是否完整
 	VersionID  uint   `gorm:"version_id"`            // 对象版本号
 }
 
