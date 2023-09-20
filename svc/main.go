@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gofiber/fiber/v2"
 	"oss/pkg/db/pg"
+	"oss/pkg/db/redis"
 	"oss/pkg/storage"
 	"oss/svc/controller"
 	"oss/svc/middleware"
@@ -10,7 +11,7 @@ import (
 )
 
 func main() {
-
+	redis.Init("162.14.115.114:6379", "12345678", 0)
 	pg.Init("162.14.115.114", "cill", "12345678", "test", "5432")
 	model.Migrate()
 	// storage init
@@ -27,8 +28,8 @@ func main() {
 	}
 	preSign := app.Group("/pre_sign")
 	{
-		preSign.Get("/:token", controller.Download)
-		preSign.Put("/:token", controller.Upload)
+		preSign.Get("/:code", controller.Download)
+		preSign.Put("/:code", controller.Upload)
 	}
 	url := app.Group("/url")
 	upload.Use(middleware.Auth)

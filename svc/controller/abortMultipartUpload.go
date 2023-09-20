@@ -20,8 +20,10 @@ func AbortMultipartUpload(c *fiber.Ctx) error {
 	if err := object.DeleteByKey(key); err != nil {
 		return response.Resp500(c, nil, fmt.Sprintf("delete object fail, err: %v", err))
 	}
+
 	if err := storage.Client.Remove(key); err != nil {
 		return response.Resp500(c, nil, fmt.Sprintf("remove object fail, err: %v", err))
 	}
+
 	return response.Resp200(c, nil, "success")
 }

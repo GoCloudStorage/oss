@@ -42,10 +42,10 @@ func PutObject(c *fiber.Ctx) error {
 
 	// save object data
 	f := bytes.NewReader(c.Body())
+	object.Size += f.Len()
 	if err = storage.Client.SaveChunk(object.Key, 0, f, int64(uploadReq.ContentRange.start)); err != nil {
 		return response.Resp500(c, nil, fmt.Sprintf("failed save chunk, err: %v", err))
 	}
-	object.Size += f.Len()
 
 	// merge object
 	if object.Size == uploadReq.ContentRange.total {

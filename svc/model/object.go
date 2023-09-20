@@ -6,15 +6,15 @@ import (
 )
 
 type Object struct {
-	gorm.Model `gorm:"gorm_._model"`
-	Key        string `gorm:"key; not null; unique"` // 对象唯一key
-	MD5        string `gorm:"md_5; not null"`        // 对象md5
-	Type       string `gorm:"type; not null"`        // 存储类型: Normal, Multipart
-	Path       string `gorm:"path"`                  // 存储路径
-	Size       int    `gorm:"size"`                  // 当前存储大小
-	TotalSize  int    `gorm:"total_size"`            // 总文件大小
-	IsComplete bool   `gorm:"is_complete"`           // 是否完整
-	VersionID  uint   `gorm:"version_id"`            // 对象版本号
+	gorm.Model `gorm:""`
+	Key        string `gorm:"not null; unique"` // 对象唯一key
+	MD5        string `gorm:"not null"`         // 对象md5
+	Type       string `gorm:"not null"`         // 存储类型: Normal, Multipart
+	Path       string `gorm:""`                 // 存储路径
+	Size       int    `gorm:""`                 // 当前存储大小
+	TotalSize  int    `gorm:""`                 // 总文件大小
+	IsComplete bool   `gorm:""`                 // 是否完整
+	VersionID  uint   `gorm:""`                 // 对象版本号
 }
 
 func (o *Object) IsExistByKey(key string) bool {
@@ -39,5 +39,5 @@ func (o *Object) Update() error {
 }
 
 func (o *Object) DeleteByKey(key string) error {
-	return pg.Client.Where("key = ?", key).Delete(o).Error
+	return pg.Client.Where("key = ?", key).Unscoped().Delete(o).Error
 }

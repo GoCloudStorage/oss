@@ -103,3 +103,11 @@ func parasUploadCommonHeader(c *fiber.Ctx) (*uploadReq, error) {
 
 	return &uploadReq{cr, total, md5, key, 0}, nil
 }
+
+func getUploadKey(key string) string {
+	return "storage:upload:key:" + key
+}
+
+func getDownloadCode(key string) string {
+	return "storage:download:key:" + key
+}
