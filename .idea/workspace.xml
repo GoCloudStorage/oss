@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0cca2168-01c4-4cbd-92c4-cda6aaf4a9cb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/svc/api/upload.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/svc/model/upload.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/svc/service/download.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/oss.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/controller/abortMultipartUpload.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/api/abortMultipartUpload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/controller/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/api/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/controller/completeMultipartUpload.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/controller/preSign.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/api/preSign.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/controller/putObject.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/controller/uploadPart.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/service/upload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/controller/url.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/api/url.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/model/object.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/model/object.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.20.6" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2Vh72u4uIfqkq2lr17SqBMPajf6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "C:/Users/user/go/src/oss",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Go Build.go build oss/svc">
+    <configuration name="go build oss/svc" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="oss" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="oss/svc" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/svc/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test in oss/svc/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="oss" />
+      <working_directory value="$PROJECT_DIR$/svc/service" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="oss/svc/service" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest\E$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build oss/svc" />
+        <item itemvalue="Go Test.Test in oss/svc/service" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

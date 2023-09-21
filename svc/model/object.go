@@ -1,6 +1,7 @@
 package model
 
 import (
+	"errors"
 	"gorm.io/gorm"
 	"oss/pkg/db/pg"
 )
@@ -18,16 +19,21 @@ type Object struct {
 }
 
 func (o *Object) IsExistByKey(key string) bool {
-	var cnt int64
-	pg.Client.Model(o).Where("key = ?", key).Count(&cnt)
-	if cnt > 0 {
-		return true
+
+	tx := pg.Client.Where("key = ?", key).First(o)
+	if errors.Is(tx.Error, gorm.ErrRecordNotFound) {
+		return false
 	}
-	return false
+	return true
 }
 
-func (o *Object) GetObjectByKey(key string) error {
-	return pg.Client.Where("key = ?", key).First(o).Error
+// GetObjectByKey 获取对象，返回错误和是否找到
+func (o *Object) GetObjectByKey(key string) (error, bool) {
+	err := pg.Client.Where("key = ?", key).First(o).Error
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		return nil, false
+	}
+	return err, true
 }
 
 func (o *Object) Create() error {
