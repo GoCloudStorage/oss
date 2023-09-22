@@ -9,10 +9,7 @@ import (
 	"oss/svc/model"
 )
 
-type UploadService struct {
-}
-
-func (s *UploadService) UploadPart(f *bytes.Reader, uploadReq *model.UploadReq) (*model.Object, error) {
+func UploadPart(f *bytes.Reader, uploadReq *model.UploadReq) (*model.Object, error) {
 	var (
 		object *model.Object
 		err    error
@@ -50,7 +47,7 @@ func (s *UploadService) UploadPart(f *bytes.Reader, uploadReq *model.UploadReq) 
 	return object, err
 }
 
-func (s *UploadService) IsExistByKey(key string) bool {
+func IsExistByKey(key string) bool {
 	var (
 		object *model.Object
 	)
@@ -61,7 +58,7 @@ func (s *UploadService) IsExistByKey(key string) bool {
 	return true
 }
 
-func (s *UploadService) MergeMultipartUpload(key string) error {
+func MergeMultipartUpload(key string) error {
 	var (
 		object *model.Object
 	)

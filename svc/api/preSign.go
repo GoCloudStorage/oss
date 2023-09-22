@@ -20,15 +20,14 @@ func Download(c *fiber.Ctx) error {
 		return response.Resp400(c, nil, err.Error())
 	}
 
-	ds := service.DownloadService{}
-	key, err := ds.GetKeyByCode(code)
+	key, err := service.GetKeyByCode(code)
 	if err != nil {
 		return response.Resp400(c, nil)
 	}
 	if key != downloadToken.Key {
 		return response.Resp403(c, nil)
 	}
-	path, err := ds.GetPath(key)
+	path, err := service.GetPath(key)
 	if err != nil {
 		return response.Resp500(c, nil)
 	}

@@ -5,22 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cca2168-01c4-4cbd-92c4-cda6aaf4a9cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/svc/api/upload.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svc/model/upload.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svc/service/download.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/oss.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/svc/controller/abortMultipartUpload.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/api/abortMultipartUpload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/svc/controller/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/api/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/svc/controller/completeMultipartUpload.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/svc/controller/preSign.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/api/preSign.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/svc/controller/putObject.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/svc/controller/uploadPart.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/service/upload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/svc/controller/url.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/api/url.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/svc/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/svc/model/object.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/model/object.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e7bfe16e-65c6-45b4-81f7-d9a9c4df0ed1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e7bfe16e-65c6-45b4-81f7-d9a9c4df0ed1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/api/preSign.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/api/preSign.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/api/upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/api/upload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/api/url.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/api/url.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/service/download.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/service/download.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc/service/upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/svc/service/upload.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,38 +29,38 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2Vh72u4uIfqkq2lr17SqBMPajf6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "C:/Users/user/go/src/oss",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/go/src/oss&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Go Build.go build oss/svc">
     <configuration name="go build oss/svc" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="oss" />

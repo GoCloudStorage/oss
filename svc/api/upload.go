@@ -18,8 +18,7 @@ func UploadPart(c *fiber.Ctx) error {
 		return response.Resp400(c, nil, err.Error())
 	}
 
-	objectService := service.UploadService{}
-	object, err := objectService.UploadPart(bytes.NewReader(c.Body()), uploadReq)
+	object, err := service.UploadPart(bytes.NewReader(c.Body()), uploadReq)
 	if err != nil {
 		return response.Resp500(c, nil)
 	}
@@ -36,8 +35,7 @@ func PutObject(c *fiber.Ctx) error {
 		return response.Resp400(c, nil, err.Error())
 	}
 
-	objectService := service.UploadService{}
-	object, err := objectService.UploadPart(bytes.NewReader(c.Body()), uploadReq)
+	object, err := service.UploadPart(bytes.NewReader(c.Body()), uploadReq)
 	if err != nil {
 		return response.Resp500(c, nil)
 	}
@@ -67,13 +65,12 @@ func CompleteMultipartUpload(c *fiber.Ctx) error {
 		return response.Resp400(c, nil, "OSS-Key not is nil")
 	}
 
-	us := service.UploadService{}
-	flag := us.IsExistByKey(key)
+	flag := service.IsExistByKey(key)
 	if !flag {
 		return response.Resp400(c, nil)
 	}
 
-	err := us.MergeMultipartUpload(key)
+	err := service.MergeMultipartUpload(key)
 	if err != nil {
 		return response.Resp500(c, nil)
 	}

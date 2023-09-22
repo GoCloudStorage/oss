@@ -1,14 +1,10 @@
 package api
 
 import (
-	"context"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
-	"oss/pkg/db/redis"
-	"oss/pkg/random"
 	"oss/pkg/response"
-	"oss/pkg/token"
-	"oss/svc/model"
+	"oss/svc/service"
 	"strconv"
 	"time"
 )
@@ -19,7 +15,6 @@ func GenerateDownloadUrl(c *fiber.Ctx) error {
 		filename string
 		ext      string
 		expire   time.Duration
-		object   model.Object
 	)
 
 	key = c.Get("OSS-Key", "")
@@ -27,7 +22,7 @@ func GenerateDownloadUrl(c *fiber.Ctx) error {
 		return response.Resp400(c, nil, "OSS-Key not is nil")
 	}
 
-	if !object.IsExistByKey(key) {
+	if !service.IsExistByKey(key) {
 		return response.Resp400(c, nil, "object not found")
 	}
 
@@ -45,16 +40,9 @@ func GenerateDownloadUrl(c *fiber.Ctx) error {
 		expire = time.Second * time.Duration(t)
 	}
 
-	// 设置 code: key映射
-	code := random.GenerateRandomString(128)
-	if err := redis.SetEx(context.Background(), getDownloadCode(code), key, expire); err != nil {
-		return response.Resp500(c, nil, fmt.Sprintf("can`t set code:key mapping, err: %v", err))
-	}
-
-	// 生成token
-	downloadToken, err := token.GenerateDownloadToken(key, filename, ext, expire)
+	code, downloadToken, err := service.GenerateDownloadURL(key, filename, ext, expire)
 	if err != nil {
-		return response.Resp500(c, nil, fmt.Sprintf("generate token fail, err: %v", err))
+		return response.Resp500(c, nil)
 	}
 	return response.Resp200(c, map[string]interface{}{
 		"url": fmt.Sprintf("http://localhost:8000/pre_sign/%s?token=%s", code, downloadToken),
