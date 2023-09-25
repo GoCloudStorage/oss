@@ -48,7 +48,3 @@ func GenerateDownloadUrl(c *fiber.Ctx) error {
 		"url": fmt.Sprintf("http://localhost:8000/pre_sign/%s?token=%s", code, downloadToken),
 	}, "success")
 }
-
-func GenerateUploadUrl(c *fiber.Ctx) error {
-	panic("not impl")
-}
