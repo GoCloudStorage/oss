@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="GO-232.8660.185">
-    <data-source name="postgres@162.14.115.114" uuid="e7bfe16e-65c6-45b4-81f7-d9a9c4df0ed1">
+  <component name="dataSourceStorageLocal" created-in="GO-232.9921.53">
+    <data-source name="test@162.14.115.114" uuid="119dd261-3b4b-49c9-adb1-d410cdee5143">
       <database-info product="PostgreSQL" version="14.1 (Debian 14.1-1.pgdg110+1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="14.1" exact-driver-version="42.6">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
@@ -10,13 +10,8 @@
       <user-name>cill</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node negative="1">
-            <node kind="database" qname="@">
-              <node kind="schema" qname="@" />
-            </node>
-            <node kind="database" qname="test">
-              <node kind="schema" negative="1" />
-            </node>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
           </node>
         </introspection-scope>
       </schema-mapping>

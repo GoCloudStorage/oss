@@ -35,8 +35,7 @@ func main() {
 	upload.Use(middleware.Auth)
 	{
 		url.Post("/generate_download_url", api.GenerateDownloadUrl)
-		url.Post("/generate_upload_url", api.GenerateUploadUrl)
+		//url.Post("/generate_upload_url", api.GenerateUploadUrl)
 	}
-
 	app.Listen(":8000")
 }
